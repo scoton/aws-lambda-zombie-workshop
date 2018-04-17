@@ -17,25 +17,13 @@ Each of the labs in this workshop is an independent section and you may choose t
 
   This exercise already has the UI and backend implemented, and focuses on how to setup the API Gateway to provide a RESTful endpoint. You will configure the survivor chat application to display which survivors are currently typing in the chat room.
 
-* **Lab 2: SMS Integration with Twilio**  
-
-    This exercise uses [Twilio](http://twilio.com) to integrate SMS text functionality with the survivor chat application. You will configure a free-trial Twilio phone number so that users can send text messages to the survivor chat application. You'll learn to leverage mapping templates in API Gateway to perform data transformations in an API.
-
-* **Lab 3: Search Integration with Elasticsearch**  
+* **Lab 2: Search Integration with Elasticsearch**  
 
     This exercise adds an Elasticsearch cluster to the application which is used to index chat messages streamed from the DynamoDB table containing chat messages.
 
-* **Lab 4: Slack Integration**  
+* **Lab 3: Slack Integration**  
 
     This exercise integrates the popular messaging app, [Slack](http://slack.com), into the chat application so that survivors can send messages to the survivor chat from within the Slack app.
-
-* **Lab 5: Intel Edison Zombie Motion Sensor** (IoT device required)
-
-    This exercise integrates motion sensor detection of zombies to the chat system using an Intel Edison board and a Grove PIR Motion Sensor. You will configure a Lambda function to consume motion detection events and push them into the survivor chat!
-
-### Workshop Cleanup
-
-This section provides instructions to tear down your environment when you're done working on the labs.
 
 * * *
 
@@ -331,11 +319,7 @@ Head back to the survivor chat app and **Refresh the page** type messages. POST 
 
 * * *
 
-## Lab 2 - SMS Integration with Twilio - We are not going to do this Lab, jump to Lab 3
-
-* * *
-
-## Lab 3 - Search over the chat messages with Elasticsearch Service
+## Lab 2 - Search over the chat messages with Elasticsearch Service
 
 **What you'll do in this lab...**
 
@@ -388,7 +372,7 @@ Then on line 7, replace the **endpoint** variable that has a value of **ENDPOINT
 18\. In the above step, we configured [DynamoDB Streams](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Streams.html) to capture incoming messages on the table and trigger a Lambda function to push them to our Elasticsearch cluster. Your messages posted in the chat from this point forward will be indexed to Elasticsearch. Post a few messages in the chat, at least 5 as configured in the DynamoDB Streams event source (batch size). You should be able to see that messages are being indexed in the "Indices" section for your cluster in the Elasticsearch Service console.
 ![API Gateway Invoke URL](/Images/Search-Done.png)
 
-**LAB 3 COMPLETE**
+**LAB 2 COMPLETE**
 
 If you would like to explore and search over the messages in the Kibana web UI that is provided with your cluster, you will need to navigate to the Elasticsearch domain you created and change the permissions. Currently you've configured the permissions so that only your AWS account has access. This allows your Lambda function to index messages into the cluster.
 
@@ -396,7 +380,7 @@ To use the web UI to build charts and search over the index, you will need to im
 
 * * *
 
-## Lab 4 - Slack Integration
+## Lab 3 - Slack Integration
 
 **What you'll do in this lab...**
 
@@ -484,7 +468,7 @@ Click the grey **Save** button to continue. The result should look like the scre
 24\. You're ready to test out the Slash Command integration. In the team chat channel for your Slack account, type the Slash Command "/survivors" followed by a message. For example, type "/survivors Please help me I am stuck and zombies are trying to get me!". After sending it, you should get a confirmation response message from Slack Bot like the one below:
 ![Slack Command Success](/Images/Slack-Step24.png)
 
-**LAB 4 COMPLETE**
+**LAB 3 COMPLETE**
 
 Navigate to your zombie survivor chat app and you should see the message from Slack appear. You have configured Slack to send messages to your chat app!
 ![Slack Command in Chat App](/Images/Slack-Step25.png)
